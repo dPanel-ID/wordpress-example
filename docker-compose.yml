@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mysql:8.0 # Or use mysql:5.7 for older versions
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Replace with a strong password
+      MYSQL_DATABASE: wordpress # Optional: create a default database
+      MYSQL_USER: wordpress # Optional: create a default user
+      MYSQL_PASSWORD: wordpress # Replace with a strong password
+    ports:
+      - "3306:3306" # Map MySQL port to host
+    volumes:
+      - wpexample_data:/var/lib/mysql # Persistent data volume
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db # Connects to the 'db' service defined above
+      MYSQL_ROOT_PASSWORD: root # Use the same root password as MySQL
+    ports:
+      - "8080:80" # Map phpMyAdmin port to host
+    depends_on:
+      - db # Ensures 'db' starts before 'phpmyadmin'
+
+volumes:
+  wpexample_data: # Define the named volume for data persistence

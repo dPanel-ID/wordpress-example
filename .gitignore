@@ -1,1 +1,8 @@
+# Development
 /vendor/
+scripts-fpm/
+development/
+
+# Ignore files
+.DS_Store
+.env

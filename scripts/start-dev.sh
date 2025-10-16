@@ -6,4 +6,4 @@ LINUX_USER=$(whoami)
 APP_NAME=$(basename "$CURRENT_DIR")
 FRANKEN_DIR=/home/${LINUX_USER}/run/frankenphp
 
-frankenphp run --config ${FRANKEN_DIR}/${APP_NAME}.Caddyfile
+./development/frankenphp run --config ./development/wordpress-example.Caddyfile

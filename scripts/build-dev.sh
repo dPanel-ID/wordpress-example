@@ -1,17 +1,22 @@
 #!/bin/bash
 
-# install dependencies
-composer install --optimize-autoloader --no-dev
-
+# predefine variables
+PORT=8081
 CURRENT_DIR=$(PWD)
 LINUX_USER=$(whoami)
 APP_NAME=$(basename "$CURRENT_DIR")
-FRANKEN_DIR=/home/${LINUX_USER}/run/frankenphp
+FRANKEN_DIR=${CURRENT_DIR}/development
 
-# create frankenphp config folder if not exist
+# create frankenphp config folder if not exist and install frankenPHP
 if [ ! -d "${FRANKEN_DIR}" ]; then
   mkdir -p ${FRANKEN_DIR}
+
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp ${FRANKEN_DIR}/frankenphp
 fi
+
+# install dependencies
+composer install --optimize-autoloader --no-dev
 
 
 # create web caddy web 
@@ -53,8 +58,9 @@ cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
 		file
 		path *.ico *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.woff
 	}
-    	root * ${CURRENT_DIR}
-		encode zstd br gzip
+	
+	root * ${CURRENT_DIR}
+	encode zstd br gzip
     
 	{\$CADDY_SERVER_EXTRA_DIRECTIVES}
 	php_server
