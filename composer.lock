@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e73c177ae54a5b8fbd40ef4a5823e877",
+    "content-hash": "670c93ce706bf5402e949ba981cdfd15",
     "packages": [
+        {
+            "name": "appsero/client",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Appsero/client.git",
+                "reference": "d110c537f4ca92ac7f3398eee67cc6bdf506a4fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Appsero/client/zipball/d110c537f4ca92ac7f3398eee67cc6bdf506a4fb",
+                "reference": "d110c537f4ca92ac7f3398eee67cc6bdf506a4fb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Appsero\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tareq Hasan",
+                    "email": "tareq@appsero.com"
+                }
+            ],
+            "description": "Appsero Client",
+            "keywords": [
+                "analytics",
+                "plugin",
+                "theme",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Appsero/client/issues",
+                "source": "https://github.com/Appsero/client/tree/v1.2.1"
+            },
+            "time": "2022-06-30T12:01:38+00:00"
+        },
         {
             "name": "graham-campbell/result-type",
             "version": "v1.1.3",
@@ -480,69 +526,73 @@
             "time": "2025-04-30T23:37:27+00:00"
         },
         {
-            "name": "wp-graphql/wp-graphql-acf",
-            "version": "v0.6.2",
+            "name": "wp-graphql/wpgraphql-acf",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/wp-graphql/wp-graphql-acf.git",
-                "reference": "131311035284db6f2ed51844bf375e057194353f"
+                "url": "https://github.com/wp-graphql/wpgraphql-acf.git",
+                "reference": "9be4b7340bb25139dcee421d31724993b9d17cba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphql-acf/zipball/131311035284db6f2ed51844bf375e057194353f",
-                "reference": "131311035284db6f2ed51844bf375e057194353f",
+                "url": "https://api.github.com/repos/wp-graphql/wpgraphql-acf/zipball/9be4b7340bb25139dcee421d31724993b9d17cba",
+                "reference": "9be4b7340bb25139dcee421d31724993b9d17cba",
                 "shasum": ""
             },
             "require": {
+                "appsero/client": "1.2.1",
                 "php": "^7.1 || ^8.0"
             },
             "require-dev": {
-                "codeception/module-asserts": "^1.0",
-                "codeception/module-cli": "^1.0",
-                "codeception/module-db": "^1.0",
+                "automattic/vipwpcs": "^3.0",
+                "axepress/wp-graphql-stubs": "^1.16",
+                "codeception/module-asserts": "^1.3",
+                "codeception/module-cli": "^1.1",
+                "codeception/module-db": "^1.2",
                 "codeception/module-filesystem": "^1.0",
                 "codeception/module-phpbrowser": "^1.0",
-                "codeception/module-rest": "^1.2",
-                "codeception/module-webdriver": "^1.0",
+                "codeception/module-rest": "^1.4",
+                "codeception/module-webdriver": "^1.4",
                 "codeception/util-universalframework": "^1.0",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-                "lucatume/wp-browser": "^2.4",
-                "phpcompatibility/phpcompatibility-wp": "2.1.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^0.12.64",
-                "phpunit/phpunit": "^8.5",
+                "lucatume/wp-browser": "3.1.0",
+                "php-stubs/acf-pro-stubs": "6.*",
+                "phpcompatibility/phpcompatibility-wp": "^2.1",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.5",
                 "simpod/php-coveralls-mirror": "^3.0",
-                "squizlabs/php_codesniffer": "3.5.4",
-                "szepeviktor/phpstan-wordpress": "^0.7.1",
-                "wp-coding-standards/wpcs": "2.1.1",
-                "wp-graphql/wp-graphql-testcase": "~2.1"
+                "slevomat/coding-standard": "^8.9",
+                "szepeviktor/phpstan-wordpress": "~1.3.0",
+                "wp-cli/wp-cli-bundle": "^2.8",
+                "wp-graphql/wp-graphql-testcase": "~2.3"
             },
             "type": "wordpress-plugin",
             "autoload": {
+                "files": [
+                    "access-functions.php",
+                    "activation.php",
+                    "deactivation.php"
+                ],
                 "psr-4": {
-                    "WPGraphQL\\ACF\\": "src/"
-                },
-                "classmap": [
-                    "src/"
-                ]
+                    "WPGraphQL\\Acf\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0+"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
-                    "name": "jasonbahl",
+                    "name": "Jason Bahl",
                     "email": "jasonbahl@mac.com"
                 }
             ],
-            "description": "Advanced Custom Fields bindings for wp-graphql",
+            "description": "Use field groups and fields from Advanced Custom Fields in your WPGraphQL API",
             "support": {
-                "issues": "https://github.com/wp-graphql/wp-graphql-acf/issues",
-                "source": "https://github.com/wp-graphql/wp-graphql-acf/tree/v0.6.2"
+                "issues": "https://github.com/wp-graphql/wpgraphql-acf/issues",
+                "source": "https://github.com/wp-graphql/wpgraphql-acf/tree/v2.4.1"
             },
-            "abandoned": true,
-            "time": "2024-07-22T18:01:33+00:00"
+            "time": "2024-07-25T18:31:33+00:00"
         }
     ],
     "packages-dev": [],
