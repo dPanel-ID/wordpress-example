@@ -25,3 +25,5 @@ After that, you need to follow the steps below.
 ./scripts/start-dev.sh
 ```
 
+4. Access the wordpress site through http://localhost:8081.
+

@@ -18,7 +18,6 @@ fi
 # install dependencies
 composer install --optimize-autoloader --no-dev
 
-
 # create web caddy web 
 cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
 {
@@ -33,7 +32,7 @@ cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
 	order php before file_server
 }
 {\$CADDY_EXTRA_CONFIG}
-:${PORT} {
+:{\$PORT} {
 	# Remove Via and Powered-By headers
 	header {
 		-Via

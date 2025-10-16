@@ -28,7 +28,7 @@ cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
 	order php before file_server
 }
 {\$CADDY_EXTRA_CONFIG}
-:${PORT} {
+:{\$PORT} {
 	# Remove Via and Powered-By headers
 	header {
 		-Via
