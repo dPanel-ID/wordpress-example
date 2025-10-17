@@ -6,6 +6,15 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
 /**
+ * Set HTTP_HOST to X_FORWARDED_HOST if it exists
+ * 
+ * This is useful if you are using a reverse proxy to serve WordPress.
+ */
+if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+/**
  * The base configuration for WordPress
  *
  * The wp-config.php creation script uses this file during the installation.
