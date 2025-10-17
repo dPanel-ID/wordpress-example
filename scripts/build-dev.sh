@@ -22,7 +22,8 @@ composer install --optimize-autoloader --no-dev
 cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
 {
    	{\$CADDY_GLOBAL_OPTIONS}
-	
+
+	admin off
 	auto_https off
 
 	frankenphp {
