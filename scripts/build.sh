@@ -59,5 +59,11 @@ cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
     
 	{\$CADDY_SERVER_EXTRA_DIRECTIVES}
 	php_server
+
+	log {
+		output stdout
+        format json
+        level ERROR
+    }
 }
 EOL
