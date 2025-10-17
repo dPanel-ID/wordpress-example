@@ -9,9 +9,21 @@ $dotenv->safeLoad();
  * Set HTTP_HOST to X_FORWARDED_HOST if it exists
  * 
  * This is useful if you are using a reverse proxy to serve WordPress.
+ * HTTP_X_FORWARDED_HOST is the host name that the reverse proxy uses to connect to the server.
+ * HTTP_X_FORWARDED_PROTO is the protocol that the reverse proxy uses to connect to the server.
+ * HTTP_X_FORWARDED_FOR is the IP address of the client that connected to the reverse proxy.
  */
 if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+	$_SERVER['HTTPS'] = 'on';
+}
+
+if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+	$http_x_headers = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+	$_SERVER['REMOTE_ADDR'] = $http_x_headers[0];
 }
 
 /**
@@ -35,22 +47,22 @@ if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', $_ENV['WORDPRESS_DB_NAME']);
+define('DB_NAME', $_ENV['WORDPRESS_DB_NAME']);
 
 /** Database username */
-define( 'DB_USER', $_ENV['WORDPRESS_DB_USER']);
+define('DB_USER', $_ENV['WORDPRESS_DB_USER']);
 
 /** Database password */
-define( 'DB_PASSWORD', $_ENV['WORDPRESS_DB_PASSWORD']);
+define('DB_PASSWORD', $_ENV['WORDPRESS_DB_PASSWORD']);
 
 /** Database hostname */
-define( 'DB_HOST', $_ENV['WORDPRESS_DB_HOST']);
+define('DB_HOST', $_ENV['WORDPRESS_DB_HOST']);
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+define('DB_CHARSET', 'utf8');
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define('DB_COLLATE', '');
 
 /** Wordpress Site Url */
 define('WP_SITEURL', $_ENV['WORDPRESS_SITEURL']);
@@ -69,14 +81,14 @@ define('WP_HOME', $_ENV['WORDPRESS_HOME']);
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
 
 /**#@-*/
 
@@ -106,7 +118,7 @@ $table_prefix = $_ENV['WORDPRESS_TABLE_PREFIX'];
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -115,8 +127,8 @@ define( 'WP_DEBUG', false );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+if (! defined('ABSPATH')) {
+	define('ABSPATH', __DIR__ . '/');
 }
 
 /** Sets up WordPress vars and included files. */
