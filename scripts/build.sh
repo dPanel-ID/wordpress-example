@@ -3,7 +3,7 @@
 # install dependencies
 composer install --optimize-autoloader --no-dev
 
-CURRENT_DIR=$(PWD)
+CURRENT_DIR=$(pwd)
 LINUX_USER=$(whoami)
 APP_NAME=$(basename "$CURRENT_DIR")
 FRANKEN_DIR=/home/${LINUX_USER}/run/frankenphp

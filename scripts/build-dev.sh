@@ -2,7 +2,7 @@
 
 # predefine variables
 PORT=8081
-CURRENT_DIR=$(PWD)
+CURRENT_DIR=$(pwd)
 LINUX_USER=$(whoami)
 APP_NAME=$(basename "$CURRENT_DIR")
 FRANKEN_DIR=${CURRENT_DIR}/development
