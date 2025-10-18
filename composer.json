@@ -3,8 +3,7 @@
     "description": "Wordpress deployment with git and dPanel",
     "type": "project",
     "require": {
-        "vlucas/phpdotenv": "5.6.2",
-        "wp-graphql/wpgraphql-acf": "2.4.1"
+        "vlucas/phpdotenv": "5.6.2"
     },
     "authors": [
         {

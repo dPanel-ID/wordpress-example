@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# install dependencies
-composer install --optimize-autoloader --no-dev
-
 CURRENT_DIR=$(pwd)
 LINUX_USER=$(whoami)
 APP_NAME=$(basename "$CURRENT_DIR")
