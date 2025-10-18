@@ -28,4 +28,3 @@ After that, you need to follow the steps below.
 ```
 
 5. Access the wordpress site through http://localhost:8081.
-
