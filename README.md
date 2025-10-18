@@ -11,20 +11,18 @@ docker-compose up -d
 
 After that, you need to follow the steps below.
 
-1. Make `php` and `composer` available in your system.
+1. Copy .env.example to .env, and fill the required environment variables.
 
-2. Copy .env.example to .env, and fill the required environment variables.
-
-3. Execute dev build script.
+2. Execute dev build script.
 
 ```bash
 ./scripts/build-dev.sh
 ```
 
-4. Start development server.
+3. Start development server.
 
 ```bash
 ./scripts/start-dev.sh
 ```
 
-5. Access the wordpress site through http://localhost:8081.
+4. Access the wordpress site through http://localhost:8081.
