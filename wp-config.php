@@ -45,6 +45,9 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
  * @package WordPress
  */
 
+/** Performance enhancements */
+define( 'WP_MEMORY_LIMIT', $_ENV['WORDPRESS_MEMORY_LIMIT'] );
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', $_ENV['WORDPRESS_DB_NAME']);
