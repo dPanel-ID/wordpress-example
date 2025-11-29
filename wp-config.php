@@ -26,6 +26,16 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 	$_SERVER['REMOTE_ADDR'] = $http_x_headers[0];
 }
 
+// Define variable config depend on the env condition, sometimes $_ENV not working and require to get data from $_SERVER
+$WORDPRESS_MEMORY_LIMIT = isset($_ENV['WORDPRESS_MEMORY_LIMIT']) ? $_ENV['WORDPRESS_MEMORY_LIMIT'] : $_SERVER['WORDPRESS_MEMORY_LIMIT'];
+$WORDPRESS_DB_NAME = isset($_ENV['WORDPRESS_DB_NAME']) ? $_ENV['WORDPRESS_DB_NAME'] : $_SERVER['WORDPRESS_DB_NAME'];
+$WORDPRESS_DB_USER = isset($_ENV['WORDPRESS_DB_USER']) ? $_ENV['WORDPRESS_DB_USER'] : $_SERVER['WORDPRESS_DB_USER'];
+$WORDPRESS_DB_PASSWORD = isset($_ENV['WORDPRESS_DB_PASSWORD']) ? $_ENV['WORDPRESS_DB_PASSWORD'] : $_SERVER['WORDPRESS_DB_PASSWORD'];
+$WORDPRESS_DB_HOST = isset($_ENV['WORDPRESS_DB_HOST']) ? $_ENV['WORDPRESS_DB_HOST'] : $_SERVER['WORDPRESS_DB_HOST'];
+$WORDPRESS_SITEURL = isset($_ENV['WORDPRESS_SITEURL']) ? $_ENV['WORDPRESS_SITEURL'] : $_SERVER['WORDPRESS_SITEURL'];
+$WORDPRESS_HOME = isset($_ENV['WORDPRESS_HOME']) ? $_ENV['WORDPRESS_HOME'] : $_SERVER['WORDPRESS_HOME'];
+$WORDPRESS_TABLE_PREFIX = isset($_ENV['WORDPRESS_TABLE_PREFIX']) ? $_ENV['WORDPRESS_TABLE_PREFIX'] : $_SERVER['WORDPRESS_TABLE_PREFIX'];
+
 /**
  * The base configuration for WordPress
  *
@@ -46,20 +56,20 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
  */
 
 /** Performance enhancements */
-define( 'WP_MEMORY_LIMIT', $_ENV['WORDPRESS_MEMORY_LIMIT'] );
+define('WP_MEMORY_LIMIT', $WORDPRESS_MEMORY_LIMIT);
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', $_ENV['WORDPRESS_DB_NAME']);
+define('DB_NAME', $WORDPRESS_DB_NAME);
 
 /** Database username */
-define('DB_USER', $_ENV['WORDPRESS_DB_USER']);
+define('DB_USER', $WORDPRESS_DB_USER);
 
 /** Database password */
-define('DB_PASSWORD', $_ENV['WORDPRESS_DB_PASSWORD']);
+define('DB_PASSWORD', $WORDPRESS_DB_PASSWORD);
 
 /** Database hostname */
-define('DB_HOST', $_ENV['WORDPRESS_DB_HOST']);
+define('DB_HOST', $WORDPRESS_DB_HOST);
 
 /** Database charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -68,10 +78,10 @@ define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
 /** Wordpress Site Url */
-define('WP_SITEURL', $_ENV['WORDPRESS_SITEURL']);
+define('WP_SITEURL', $WORDPRESS_SITEURL);
 
 /** Wordpress Home Url */
-define('WP_HOME', $_ENV['WORDPRESS_HOME']);
+define('WP_HOME', $WORDPRESS_HOME);
 
 /**#@+
  * Authentication unique keys and salts.
@@ -107,7 +117,7 @@ define('NONCE_SALT',       'put your unique phrase here');
  *
  * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
  */
-$table_prefix = $_ENV['WORDPRESS_TABLE_PREFIX'];
+$table_prefix = $WORDPRESS_TABLE_PREFIX;
 
 /**
  * For developers: WordPress debugging mode.
