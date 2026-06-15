@@ -13,7 +13,9 @@ services:
       - wpexample_data:/var/lib/mysql # Persistent data volume
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    # image: phpmyadmin/phpmyadmin:5.2.3
+    # image: arm64v8/phpmyadmin:5.2.3
+    image: ${PHPMYADMIN_IMAGE:-phpmyadmin/phpmyadmin:5.2.3} # Use environment variable or default image
     restart: always
     environment:
       PMA_HOST: db # Connects to the 'db' service defined above

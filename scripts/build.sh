@@ -3,7 +3,7 @@
 CURRENT_DIR=$(pwd)
 LINUX_USER=$(whoami)
 APP_NAME=$(basename "$CURRENT_DIR")
-FRANKEN_DIR=/home/${LINUX_USER}/run/frankenphp
+FRANKEN_DIR=${CURRENT_DIR}/run/frankenphp
 
 # create frankenphp config folder if not exist
 if [ ! -d "${FRANKEN_DIR}" ]; then
