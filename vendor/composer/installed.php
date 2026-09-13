@@ -3,7 +3,7 @@
         'name' => 'prakasa/wordpress-example',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd0c5ba55864e648d3d94e985f8860446f5291e8d',
+        'reference' => 'ef5076e7e1bd6328d305e7fcdde4736c935086b7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'prakasa/wordpress-example' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd0c5ba55864e648d3d94e985f8860446f5291e8d',
+            'reference' => 'ef5076e7e1bd6328d305e7fcdde4736c935086b7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
