@@ -6,4 +6,4 @@ export LINUX_USER=$(whoami)
 export APP_NAME=$(basename "$CURRENT_DIR")
 export FRANKEN_DIR=${CURRENT_DIR}/development
 
-./development/frankenphp run --config ./development/wordpress-example.Caddyfile
+./development/frankenphp run --config ./development/${APP_NAME}.Caddyfile
