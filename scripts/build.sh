@@ -21,9 +21,13 @@ cat > ${FRANKEN_DIR}/${APP_NAME}.Caddyfile << EOL
 
 	frankenphp {
 		{\$FRANKENPHP_CONFIG}
-		num_threads 1
-		max_threads 1
+		num_threads 2
+		max_threads 4
 		php_ini memory_limit 64M
+		php_ini log_errors On
+		php_ini error_log /dev/stdout
+		php_ini max_input_vars 5000
+		php_ini max_multipart_body_parts 5000
 	}
 	order php_server before file_server
 	order php before file_server
