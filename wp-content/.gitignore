@@ -1,1 +1,9 @@
-uploads
+# Uploaded media (uploads/) is versioned so a backup keeps it.
+# Only caches and files WordPress rebuilds itself stay out.
+cache/
+upgrade/
+upgrade-temp-backup/
+ai1wm-backups/
+updraft/
+backups/
+debug.log

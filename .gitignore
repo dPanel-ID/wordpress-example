@@ -5,3 +5,6 @@ development/
 # Ignore files
 .DS_Store
 .env
+
+# Generated on every build (scripts/build.sh)
+run/
